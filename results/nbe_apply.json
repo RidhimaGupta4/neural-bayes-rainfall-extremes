@@ -1,0 +1,28 @@
+{
+ "timing_note": "one CPU thread, all datasets in one batch, model already loaded",
+ "seed1_time_256_cells_s": 0.0018429390001983847,
+ "seed2_time_256_cells_s": 0.001927672999954666,
+ "seed3_time_256_cells_s": 0.002133253000010882,
+ "ood": {
+  "n_sim": 200000,
+  "real_tail_prob_min": 0.00872,
+  "n_cells_tail_prob_below_0.001": 0,
+  "n_cells_tail_prob_below_0.01": 1,
+  "sim_m_range": [
+   7.140727996826172,
+   373.3083801269531
+  ],
+  "real_m_range": [
+   25.17153549194336,
+   128.8329620361328
+  ],
+  "sim_s_range": [
+   1.439117670059204,
+   1324.712890625
+  ],
+  "real_s_range": [
+   7.3836989402771,
+   43.012420654296875
+  ]
+ }
+}
