@@ -110,3 +110,11 @@ Each change is recorded here with whether it was made before or after the result
    150 or σ just above 50 when the starting point was clipped at the prior bound, so all chains of
    one simulated dataset were rejected before sampling. Starting values are now clipped after the
    jitter. The model, prior, sampler settings and the 750 completed fits are unchanged.
+2. **Refits of flagged MCMC fits** (computation only; recorded after the MCMC diagnostics were
+   seen and before any comparison with the neural estimator was computed). 80 of 256 real fits and
+   188 of 1,000 simulated fits failed the convergence rule, all but 5 of them only through 1–13
+   divergent transitions out of 4,000, which come from the GEV's hard support boundary. Every
+   flagged fit is refitted once with `adapt_delta = 0.999`, same model, prior, chains and
+   iterations (`R/10b_refit_flagged.R`). A refit replaces the original only if it passes the rule
+   or has fewer divergences; fits that still fail stay flagged and are reported. Results are
+   reported for all fits and, as a sensitivity check, for converged fits only.
