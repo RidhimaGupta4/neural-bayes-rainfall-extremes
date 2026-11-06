@@ -37,9 +37,11 @@ inits_for <- function(y, chains, seed) {
   set.seed(seed)
   s <- min(max(sd(y) * sqrt(6) / pi, 2.5), 49)
   m <- min(max(mean(y) - 0.5772 * s, 10.5), 149.5)
-  lapply(seq_len(chains), function(k) list(mu = m * exp(rnorm(1, 0, 0.01)),
-                                          sigma = s * exp(rnorm(1, 0, 0.01)),
-                                          xi = 0.05 + rnorm(1, 0, 0.005)))
+  # jitter, then clip so every chain starts strictly inside the prior bounds
+  lapply(seq_len(chains), function(k) list(
+    mu = min(max(m * exp(rnorm(1, 0, 0.01)), 10.5), 149.5),
+    sigma = min(max(s * exp(rnorm(1, 0, 0.01)), 2.5), 49.5),
+    xi = 0.05 + rnorm(1, 0, 0.005)))
 }
 
 fit_one <- function(y, id, seed) {

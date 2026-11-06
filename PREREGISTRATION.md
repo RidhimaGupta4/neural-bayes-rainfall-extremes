@@ -105,3 +105,9 @@ for ξ and log z₁₀₀.
 
 (None yet. Any change is recorded here with whether it was made before or after the result it
 affects.)
+
+1. **Stan starting values** (computation only; recorded after 15 of 20 chunks of simulated fits
+   and before any real-data MCMC). The random jitter on starting values could place μ just above
+   150 or σ just above 50 when the starting point was clipped at the prior bound, so all chains of
+   one simulated dataset were rejected before sampling. Starting values are now clipped after the
+   jitter. The model, prior, sampler settings and the 750 completed fits are unchanged.
