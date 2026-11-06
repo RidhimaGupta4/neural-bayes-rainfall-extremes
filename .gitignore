@@ -1,0 +1,8 @@
+data/raw/
+results/draws/
+results/sim/
+__pycache__/
+*.pyc
+.Rhistory
+.RData
+models/*.pt.tmp

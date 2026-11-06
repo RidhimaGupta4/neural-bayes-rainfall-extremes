@@ -1,0 +1,8 @@
+{
+  "cov_center": 1.50593549024419,
+  "cov_scale": 0.361602078417372,
+  "n_train_winters": 39,
+  "n_val_winters": 13,
+  "n_test_winters": 12,
+  "covariate_source": "training winters only"
+}
