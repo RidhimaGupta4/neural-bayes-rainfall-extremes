@@ -103,8 +103,7 @@ for ξ and log z₁₀₀.
 
 ## Amendments
 
-(None yet. Any change is recorded here with whether it was made before or after the result it
-affects.)
+Each change is recorded here with whether it was made before or after the result it affects.
 
 1. **Stan starting values** (computation only; recorded after 15 of 20 chunks of simulated fits
    and before any real-data MCMC). The random jitter on starting values could place μ just above
