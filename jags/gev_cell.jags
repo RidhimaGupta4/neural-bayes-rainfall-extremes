@@ -1,0 +1,20 @@
+# GEV for one cell's W winter maxima, same prior as stan/gev_cell.stan.
+# JAGS has no GEV distribution: the "zeros trick" adds the log-likelihood ll to the log
+# posterior through zero ~ Poisson(C - ll), whose likelihood is exp(ll - C).
+# Values outside the GEV support get a -1e6 penalty (an effective rejection).
+model {
+  C <- 1.0E+6
+  for (w in 1:W) {
+    tt[w] <- 1 + xi * (y[w] - mu) / sigma
+    ts[w] <- tt[w] * step(tt[w]) + 1.0E-10
+  }
+  ll <- -W * log(sigma) - (1 + 1 / xi) * log(prod(ts[1:W])) - sum(pow(ts[1:W], -1 / xi))
+        - 1.0E+6 * step(-min(tt[1:W]))
+  zero ~ dpois(C - ll)
+  mu ~ dunif(10, 150)
+  sigma ~ dunif(2, 50)
+  xi_raw ~ dbeta(9, 6)
+  xi <- xi_raw - 0.5
+  yp100 <- -log(1 - 1 / 100)
+  z100 <- mu + sigma / xi * (pow(yp100, -xi) - 1)
+}
