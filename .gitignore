@@ -7,4 +7,3 @@ __pycache__/
 .RData
 models/*.pt.tmp
 stan/gev_cell
-models/
