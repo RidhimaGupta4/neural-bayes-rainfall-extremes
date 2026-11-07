@@ -1,6 +1,9 @@
-data/raw/
-results/draws/
-results/sim/
+data/raw/*
+!data/raw/placeholder.md
+results/draws/*
+!results/draws/placeholder.md
+results/sim/*
+!results/sim/placeholder.md
 __pycache__/
 *.pyc
 .Rhistory
